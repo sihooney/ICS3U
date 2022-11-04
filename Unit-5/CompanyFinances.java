@@ -18,6 +18,7 @@ public class CompanyFinances {
         // Get user input
         System.out.println("What year are you retrieving the text file from?");
         int year = sc.nextInt();
+        sc.close();
         inFile = new Scanner(new File(String.format("%d_sales_summary.txt", year)));
 
         // Read input file
