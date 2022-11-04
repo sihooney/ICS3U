@@ -19,6 +19,7 @@ public class ChowTech {
         // Get user input
         System.out.println("What year are you retrieving the text file from?");
         int year = sc.nextInt();
+        sc.close();
         inFile = new File(String.format("%d_sales_summary.txt", year));
         outFile = new File(String.format("%d_bonus_summary.txt", year));
         calculateBonuses();
@@ -41,8 +42,9 @@ public class ChowTech {
             }
             salesSummary[id] += sales;
         }
+        reader.close();
 
-        for (Integer id : employeeIDs) {
+        for (int id : employeeIDs) {
             totalSales += salesSummary[id];
             double bonus = salesSummary[id] * 0.05;
             bonusSummary[id] = bonus;
@@ -71,7 +73,7 @@ public class ChowTech {
     }
 
     public static boolean inArray(int num, int[] arr) {
-        for (Integer i : arr) {
+        for (int i : arr) {
             if (num == i) {
                 return true;
             }
